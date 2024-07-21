@@ -20,7 +20,8 @@
         <div class="card p-4">
             <div class="row g-0 justify-content-center">
                 <div class="col-md-4 logo">
-                    <img src="{{ asset('image/logo.png') }}" class="img-fluid">
+{{--                    <img src="{{ asset('image/logo.png') }}" class="img-fluid">--}}
+                    <img src="{{ asset('images/MainLogo.png') }}" class="img-fluid">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
