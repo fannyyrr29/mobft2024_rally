@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Penpos\PenposController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,21 @@ Route::get('/match-it', function () {
     return view('match-it');
 });
 
+// ========== PENPOS ==========
+Route::group(
+    ['middleware' => 'penpos', 'prefix' => 'penpos', 'as' => 'penpos.'],
+    function () {
+        Route::get('/', [PenposController::class, 'index'])->name('index');
+        Route::post('/submit', [PenposController::class, 'submit'])->name('submit');
+        Route::post('/status', [PenposController::class, 'status'])->name('status');
+    }
+);
+
 Route::get('/login', [LoginController::class, 'index'])
+    ->name('login')
+    ->middleware('guest');
+
+Route::post('/login', [LoginController::class, 'login'])
     ->name('login')
     ->middleware('guest');
 

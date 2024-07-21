@@ -61,7 +61,7 @@
             </div>
             <div class="card-body">
                 <div class="input-section text-center mb-2">
-                    <form action="{{ route('penpos-status') }}" method="post">
+                    <form action="{{ route('penpos.status') }}" method="post">
                         @csrf
                         <div class="team-select my-2 ">
                             <label class="text-mob" for="team" style="">Status Pos :</label>
@@ -79,16 +79,16 @@
                     </form>
                 </div>
                 <div class="input-section text-center">
-                    <form action="{{ route('penpos-submit') }}" method="post">
+                    <form action="{{ route('penpos.submit') }}" method="post">
                         @csrf
                         <div class="team-select my-2 ">
                             <label class="text-mob" for="team" style="">Nomor Tim :</label>
                             <br>
                             <select name="team" id="team" class="form-select" required>
                                 <option value="-" selected disabled>- Pilih Team -</option>
-                                @foreach ($belumMain as $group)
-                                    <option value="{{ $group->id }}" id="team{{ $group->id }}">
-                                        {{ $group->number }}</option>
+                                @foreach ($belumMain as $team)
+                                    <option value="{{ $team->id }}" id="team{{ $team->id }}">
+                                        {{ $team->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
