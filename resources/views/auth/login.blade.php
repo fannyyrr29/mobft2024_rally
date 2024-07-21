@@ -24,6 +24,11 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
+                        @if(session()->has('gagal'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session()->get('gagal') }}
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('login') }}" class="form-floating">
                             @csrf
                             <h2 class="text-mob" style="color: #F6F7D7;">Masuk</h2>
