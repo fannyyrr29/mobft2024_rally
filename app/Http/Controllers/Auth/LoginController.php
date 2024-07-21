@@ -17,17 +17,29 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        $maxAttempts = 5;
         $request->validate([
             'username' => ['required', 'string'],
             'password' => ['required', 'string']
         ]);
 
         try {
+            $throttleKey = Str::transliterate(Str::lower($request->input('username')).'|'.$request->ip());
+
+            // Check Limiter
+            if (RateLimiter::tooManyAttempts($throttleKey, $maxAttempts)) {
+                $seconds = RateLimiter::availableIn($throttleKey);
+                return back()->with("gagal", 'Too many login attempts. Please try again in ' . $seconds .  ' seconds!');
+            }
+
             // Check Auth
             if (!Auth::attempt($request->only('username', 'password'))) {
-                RateLimiter::hit(Str::transliterate(Str::lower($request->input('email')).'|'.$request->ip()));
+                RateLimiter::hit($throttleKey);
                 return back()->with("gagal", 'Login Gagal! Kombinasi username dan password salah!');
             }
+
+            // Clear Limiter
+            RateLimiter::clear($throttleKey);
 
             $request->session()->regenerate();
 
