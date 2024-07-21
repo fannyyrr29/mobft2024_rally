@@ -16,7 +16,7 @@ class PenposMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role = 'Penpos') {
+        if (Auth::check() && Auth::user()->role == 'Penpos') {
             return $next($request);
         }
 
