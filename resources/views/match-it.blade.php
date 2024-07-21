@@ -24,10 +24,13 @@
             font-size: 24px;
             transform: rotateY(180deg);
         }
+
+        .card-front img,.card-back img{
+            padding: 8px;   
+        }
             
         .card-back{
-            background-color: #FBC907;
-           
+            background-color: maroon;
         }
 
         .card-front, .card-back{
@@ -49,6 +52,7 @@
 </head>
 <body class="bg-red-700">
     <div class="mx-auto h-500px">
+        <p class="text-5xl font-bold left-2"></p>
         <h1 class="text-center text-5xl font-bold my-8">Match Me!</h1>
         <button id='start' class="bg-yellow-300 h-12 w-64 my-8 rounded text-xl absolute top-0 right-0 mr-12 hover:bg-yellow-100">Start Game</button>
         <div id="board" class="grid grid-cols-5 gap-4 mx-72 mt-12 justify-items-center">
@@ -58,7 +62,29 @@
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    const cardlist = ['1','2','3','4','5','6','7','8','9','10','1','2','3','4','5','6','7','8','9','10'];
+    const cardlist = [
+        { value: '1', image: 'images/2.png' },
+        { value: '2', image: 'images/3.png' },
+        { value: '3', image: 'images/4.png' },
+        { value: '4', image: 'images/5.png' },
+        { value: '5', image: 'images/6.png' },
+        { value: '6', image: 'images/7.png' },
+        { value: '7', image: 'images/8.png' },
+        { value: '8', image: 'images/9.png' },
+        { value: '9', image: 'images/10.png' },
+        { value: '10', image: 'images/11.png' },
+        { value: '1', image: 'images/2.png' },
+        { value: '2', image: 'images/3.png' },
+        { value: '3', image: 'images/4.png' },
+        { value: '4', image: 'images/5.png' },
+        { value: '5', image: 'images/6.png' },
+        { value: '6', image: 'images/7.png' },
+        { value: '7', image: 'images/8.png' },
+        { value: '8', image: 'images/9.png' },
+        { value: '9', image: 'images/10.png' },
+        { value: '10', image: 'images/11.png' }
+    ];
+
     let firstCard,secondCard;
     let lockBoard = false;
     let match = 0;
@@ -75,9 +101,13 @@
     function generateCard(){
         cardlist.forEach(element => {
             const card = `
-                <div class="card"> 
-                     <div class="card-front">${element}</div>
-                     <div class="card-back"></div>
+                <div class="card" id="${element.value}"> 
+                     <div class="card-front">
+                     <img src="${element.image}">   
+                     </div>
+                     <div class="card-back">
+                         <img src="images/MainLogo.png">   
+                     </div>
                 </div>
                 `;                   
             $('#board').append(card);
@@ -114,7 +144,7 @@
     }
     
     function checkMatch(){
-        if(firstCard.text() === secondCard.text()){
+        if(firstCard.attr('id') === secondCard.attr('id')){
            firstCard.off('click');
            secondCard.off('click');
            match++;
@@ -144,6 +174,7 @@
     }
 
     function lookTime(){
+        match=0;
         cardlist.forEach(element => {            
             $('.card').addClass('flipped');
         });        
@@ -158,6 +189,7 @@
             });
         }, 3000);
     }
+    
     
 </script>
 </html>
