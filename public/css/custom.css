@@ -1,0 +1,21 @@
+/*@import url('https://fonts.cdnfonts.com/css/04b30');*/
+/*@import url('https://fonts.cdnfonts.com/css/broken-console');*/
+@import url('https://fonts.cdnfonts.com/css/sancreek');
+@import url('https://fonts.cdnfonts.com/css/bricolage-grotesque');
+/*@import url('https://fonts.cdnfonts.com/css/montserrat');*/
+
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title-mob {
+    font-family: 'Sancreek', sans-serif;
+    color: #390203;
+}
+
+.text-mob {
+    /*color: #40128B;*/
+    color: #390203;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
