@@ -21,7 +21,17 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                switch (Auth::user()->role) {
+                    case "Penpos":
+                        return redirect()->route('penpos.index');
+                    case "Rally1":
+                        abort(403);  // Sementara, nanti hapus aja
+                    case "Rally2":
+                        abort(403);  // Sementara, nanti hapus aja
+                    default:
+                        return redirect(RouteServiceProvider::HOME);
+                }
+
             }
         }
 

@@ -34,6 +34,10 @@ class LoginController extends Controller
             switch (Auth::user()->role) {
                 case 'Penpos':
                     return redirect()->intended('/penpos');
+                case "Rally1":
+                    abort(403);// Sementara, nanti hapus aja
+                case "Rally2":
+                    abort(403);// Sementara, nanti hapus aja
                 default:
                     abort(404);
             }
