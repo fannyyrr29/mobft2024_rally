@@ -39,7 +39,8 @@ class UserSeeder extends Seeder
                 'username' => "penpos$pos",
                 'password' => Hash::make('Penpos@MOBFT24'),
                 'target' => 15,
-                'lokasi' => $lokasi
+                'lokasi' => $lokasi,
+                'role' => 'Penpos'
             ]);
 
             $pos++;

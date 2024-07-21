@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('target');
             $table->string('lokasi');
             $table->enum('status', ['Penuh', 'Menunggu', 'Kosong'])->default('Kosong');
+            $table->enum('role', ['Penpos', 'Rally1', 'Rally2'])->default('Penpos');
             $table->rememberToken();
             $table->timestamps();
         });
