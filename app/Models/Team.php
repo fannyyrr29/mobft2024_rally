@@ -30,4 +30,16 @@ class Team extends Model
             ->withPivot(['result'])
             ->withTimestamps();
     }
+
+    public function pertanyaans() : BelongsToMany
+    {
+        return $this->belongsToMany(
+            Pertanyaan::class,
+            'list_pertanyaan',
+            'team_id',
+            'pertanyaan_id'
+        )
+            ->withPivot(['status'])
+            ->withTimestamps();
+    }
 }
