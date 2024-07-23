@@ -53,10 +53,12 @@
 <body class="bg-red-700">
     <div class="mx-auto h-500px">
         <p class="text-5xl font-bold left-2"></p>
-        <h1 class="text-center text-5xl font-bold my-8">Match Me!</h1>
-        <button id='start' class="bg-yellow-300 h-12 w-64 my-8 rounded text-xl absolute top-0 right-0 mr-12 hover:bg-yellow-100">Start Game</button>
+        <h1 class="text-center text-5xl font-bold my-8">MATCH ME!</h1>
         <div id="board" class="grid grid-cols-5 gap-4 mx-72 mt-12 justify-items-center">
             {{-- Kartu yang ditampilkan --}}
+        </div>
+        <div class="flex justify-center mt-2">
+            <button id='start' class="bg-yellow-300 h-12 w-64 my-8 rounded text-xl hover:bg-yellow-100">Start Game</button>
         </div>
     </div>
 </body>
@@ -168,18 +170,26 @@
 
     function checkWin(){
         if(match === 10){
-            alert("WIN");
             $('#start').attr('disabled',false);
+            $('h1').html("YOU WIN!!!");
         }
     }
 
     function lookTime(){
+        $('#board').empty();
         match=0;
-        cardlist.forEach(element => {            
+        shuffleCard();
+        generateCard();
+        $('h1').html("MATCH ME!");
+
+        setTimeout(() => {
+            cardlist.forEach(element => {            
             $('.card').addClass('flipped');
         });        
         $('#start').attr('disabled',true);
 
+        }, 1000);
+      
         setTimeout(() => {
             cardlist.forEach(element => {            
             $('.card').removeClass('flipped');   
@@ -187,7 +197,7 @@
         $('.card').on('click', function () {
                 cardClick($(this));
             });
-        }, 3000);
+        }, 60000);
     }
     
     
