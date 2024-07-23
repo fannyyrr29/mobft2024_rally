@@ -23,6 +23,10 @@ Route::get('/match-it', function () {
     return view('match-it');
 });
 
+Route::get('/crack-the-code', function () {
+    return view('crack-the-code');
+});
+
 // ========== PENPOS ==========
 Route::group(
     ['middleware' => 'penpos', 'prefix' => 'penpos', 'as' => 'penpos.'],
