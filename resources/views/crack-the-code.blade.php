@@ -56,7 +56,7 @@
         }
     </style>
 </head>
-<body class="bg-red-600">
+<body class="bg-red-500">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -84,16 +84,18 @@
             function Quest(){
                 if (questions[inputValue] && inputValue!=lockedCode) {
                     const q = `
-                    <p>
+                    <div class="mx-auto text-center">
+                    <p class="text-left bg-red-300 p-3 rounded my-5">
                         ${questions[inputValue].question}
                     </p>
                     <div class="d-grid">
-                        <button id='a' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100">A. ${questions[inputValue].a}</button>
-                        <button id='b' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100">B. ${questions[inputValue].b}</button>
+                        <button id='a' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:40%">A. ${questions[inputValue].a}</button>
+                        <button id='b' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:40%">B. ${questions[inputValue].b}</button>
                     </div>
                     <div class="d-grid">
-                        <button id='c' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100">C. ${questions[inputValue].c}</button>
-                        <button id='d' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100">D. ${questions[inputValue].d}</button>
+                        <button id='c' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:40%">C. ${questions[inputValue].c}</button>
+                        <button id='d' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:40%">D. ${questions[inputValue].d}</button>
+                    </div>
                     </div>`;
                     $("#question").append(q);
 
@@ -118,14 +120,11 @@
                 if(questions[inputValue][option] == questions[inputValue].ans){
                     alert("jawaban benar");
                     score++;
-                    if(score<=3){
-                        $('#box').attr('src','images/Box Game '+(score+1)+'-01.png');
-                    }
-                    if(score==4){
-                        $('#box').attr('src','images/Box Game box-01.png');
+                    if(score<5){
+                        $('#box').attr('src','images/Box Game '+score+'-01.png');
                     }
                     if(score==5){
-                        $('#box').attr('src','images/MainLogo.png');
+                        $('#box').attr('src','images/Box Game box-01.png');
                         $('#box').removeClass('locked-box');
                         alert('menang');
                         delete questions;
@@ -151,7 +150,7 @@
     </script>
     <h1 class="text-center text-5xl font-bold my-8">Crack the Code !</h1>
     <div class="mx-auto center">
-        <div class="center"><img src="images/Box Game 1-01.png" alt="box" class="locked-box w-72" id="box"></div>
+        <div class="center"><img src="images/Box Game 0-01.png" alt="box" class="locked-box w-72" id="box"></div>
         <br>
         <div>
             <input type="text" name="input" id="input" class="h-12 w-64 rounded m-3 p-3" style="font-weight: bold; font-size:32px; text-align:center" maxlength="4">
@@ -159,7 +158,7 @@
             <button id='code' class="bg-yellow-300 h-12 w-64 m-3 rounded text-xl hover:bg-yellow-100">ENTER CODE</button>
         </div>
     </div>
-    <div class="question rounded mx-12 p-3" id="question">
+    <div class="question rounded mx-12 py-3 px-12" id="question">
         {{-- container pertanyaan --}}
     </div>
 </body>
