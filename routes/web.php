@@ -15,9 +15,9 @@ use App\Http\Controllers\Penpos\PenposController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/match-me', function () {
     return view('match-me');
@@ -37,7 +37,7 @@ Route::group(
     }
 );
 
-Route::get('/login', [LoginController::class, 'index'])
+Route::get('/', [LoginController::class, 'index'])
     ->name('login')
     ->middleware('guest');
 
