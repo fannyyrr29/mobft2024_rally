@@ -48,9 +48,20 @@
             transform: rotateY(180deg);
         }
         
+        #timer{
+            font-size: 2em;
+            color: white;
+            text-align: center;
+            position: fixed;
+            top: 1rem;
+            right: 2rem;
+            width: 8rem;
+            height: 3rem;
+        }
       </style>
 </head>
 <body class="bg-red-700">
+    <div id="timer">03:00</div>
     <div class="mx-auto h-500px">
         <p class="text-5xl font-bold left-2"></p>
         <h1 class="text-center text-5xl font-bold my-8">MATCH ME!</h1>
@@ -59,6 +70,7 @@
         </div>
         <div class="flex justify-center mt-2">
             <button id='start' class="bg-yellow-300 h-12 w-64 my-8 rounded text-xl hover:bg-yellow-100">Start Game</button>
+            
         </div>
     </div>
 </body>
@@ -90,6 +102,7 @@
     let firstCard,secondCard;
     let lockBoard = false;
     let match = 0;
+    let timerIsOn = false;
 
     $(document).ready(function () {
         shuffleCard();
@@ -195,11 +208,39 @@
         //     });
         // }, 60000);
 
+        startTimer(180, document.querySelector('#timer'));
+
         $('.card').on('click', function () {
                 cardClick($(this));
             });
     }
-    
+
+    function startTimer(duration, display) {
+        let timer = duration, minutes, seconds;
+        lockBoard = false;
+        if(timerIsOn){
+            return;
+        }
+        timerIsOn = true;
+        const interval = setInterval(() => {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+            --timer
+
+            if (timer < 0) {
+                display.textContent = "00:00";
+                clearInterval(interval);
+                alert('Waktu Habis');
+                lockBoard = true;
+                timerIsOn = false;
+            }
+        }, 1000);
+    }
     
 </script>
 </html>

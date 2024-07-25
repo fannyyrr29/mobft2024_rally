@@ -56,7 +56,7 @@
         }
     </style>
 </head>
-<body class="bg-red-500 center" style="height:100vh">
+<body class="bg-red-700 center" style="height:100vh">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -148,17 +148,21 @@
             }
         });
     </script>
-    <div style="height: 80vh;">
-        <h1 class="text-center text-5xl font-bold my-8 mx-5">Crack the Code !</h1>
-        <div>
-            <div class="center"><img src="images/Box Game 0-01.png" alt="box" class="locked-box w-80" id="box"></div>
-            <input type="text" name="input" id="input" class="h-12 w-64 rounded m-3 p-3" style="font-weight: bold; font-size:32px; text-align:center" maxlength="4">
-            <br>
-            <button id='code' class="bg-yellow-300 h-12 w-64 m-3 rounded text-xl hover:bg-yellow-100">ENTER CODE</button>
+    <div class="flex flex-row w-full" style="height: 80vh;">
+        <div class="basis-1/3">
+            <h1 class="text-center text-5xl font-bold my-8 mx-5">Crack the Code !</h1>
+            <div>
+                <div class="center"><img src="images/Box Game 0-01.png" alt="box" class="locked-box w-80" id="box"></div>
+                <input type="text" name="input" id="input" class="h-12 w-64 rounded m-3 p-3" style="font-weight: bold; font-size:32px; text-align:center" maxlength="4">
+                <br>
+                <button id='code' class="bg-yellow-300 h-12 w-64 m-3 rounded text-xl hover:bg-yellow-100">ENTER CODE</button>
+            </div>
         </div>
-    </div>
-    <div class="question rounded m-5 py-5 px-12" style="width:80%; height:80vh;" id="question">
-        {{-- container pertanyaan --}}
+        <div class="basis-2/3">
+            <div class="question rounded m-5 py-5 px-12" style="height:80vh;" id="question">
+                {{-- container pertanyaan --}}
+            </div>
+        </div>
     </div>
 </body>
 
