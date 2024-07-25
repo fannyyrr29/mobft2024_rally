@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/match-it', function () {
-    return view('match-it');
+Route::get('/match-me', function () {
+    return view('match-me');
 });
 
 Route::get('/crack-the-code', function () {
