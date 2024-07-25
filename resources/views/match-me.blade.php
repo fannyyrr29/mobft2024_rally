@@ -58,6 +58,10 @@
             width: 8rem;
             height: 3rem;
         }
+
+        .hidden{
+            display: none;
+        }
       </style>
 </head>
 <body class="bg-red-700">
@@ -111,23 +115,24 @@
 
     $('#start').click(function () { 
         lookTime();
+        startTimer(180, document.querySelector('#timer'));
+        $('#start').addClass('hidden');
     }); 
 
     function generateCard(){
         cardlist.forEach(element => {
             const card = `
-                <div class="card" id="${element.value}"> 
-                     <div class="card-front">
-                     <img src="${element.image}">   
-                     </div>
-                     <div class="card-back">
-                         <img src="images/MainLogo.png">   
-                     </div>
+            <div class="card" id="${element.value}"> 
+                <div class="card-front">
+                <img src="${element.image}">   
                 </div>
+                <div class="card-back">
+                    <img src="images/MainLogo.png">   
+                </div>
+            </div>
                 `;                   
             $('#board').append(card);
         });
-      
     }
 
     function shuffleCard(){
@@ -208,8 +213,6 @@
         //     });
         // }, 60000);
 
-        startTimer(180, document.querySelector('#timer'));
-
         $('.card').on('click', function () {
                 cardClick($(this));
             });
@@ -238,6 +241,7 @@
                 alert('Waktu Habis');
                 lockBoard = true;
                 timerIsOn = false;
+                $('#start').removeClass('hidden');
             }
         }, 1000);
     }
