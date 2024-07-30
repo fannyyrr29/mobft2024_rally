@@ -10,6 +10,7 @@
       <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
       @vite('resources/css/app.css')
       <style>
+        @import url('https://fonts.cdnfonts.com/css/sancreek');
         .card{
             height:180px;
             width: 140px;
@@ -49,8 +50,9 @@
         }
         
         #timer{
-            font-size: 2em;
-            color: white;
+            font-size: 3em;
+            font-family: 'Sancreek', sans-serif;
+            color: #390203;
             text-align: center;
             position: fixed;
             top: 1rem;
@@ -64,16 +66,16 @@
         }
       </style>
 </head>
-<body class="bg-red-700">
-    <div id="timer">03:00</div>
+<body style="background-color: #EAE2B7">
+    <div id="timer" >03:00</div>
     <div class="mx-auto h-500px">
         <p class="text-5xl font-bold left-2"></p>
-        <h1 class="text-center text-5xl font-bold my-8">MATCH ME!</h1>
+        <h1 class="text-center text-5xl font-bold my-8" style="font-family: 'Sancreek', sans-serif; color:#390203; ">MATCH ME!</h1>
         <div id="board" class="grid grid-cols-5 gap-4 mx-72 mt-12 justify-items-center">
             {{-- Kartu yang ditampilkan --}}
         </div>
         <div class="flex justify-center mt-2">
-            <button id='start' class="bg-yellow-300 h-12 w-64 my-8 rounded text-xl hover:bg-yellow-100">Start Game</button>
+            <button id='start' class="bg-red-800 h-12 w-64 my-8 rounded text-xl text-slate-100 hover:bg-red-400" style="font-family: 'Sancreek', sans-serif;">Start Game</button>
             
         </div>
     </div>
