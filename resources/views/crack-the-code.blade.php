@@ -51,12 +51,59 @@
             }
         }
 
+        .drop{
+            animation: drop 2s ease 0s 1 normal forwards;
+        }
+        @keyframes drop {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+
+	38% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	55% {
+		animation-timing-function: ease-in;
+		transform: translateY(-65px);
+	}
+
+	72% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	81% {
+		animation-timing-function: ease-in;
+		transform: translateY(-28px);
+	}
+
+	90% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	95% {
+		animation-timing-function: ease-in;
+		transform: translateY(-8px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+}
+
         .question{
             border: 3px solid maroon;
         }
     </style>
 </head>
-<body class="bg-red-700 center" style="height:100vh">
+<body>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -124,9 +171,9 @@
                         $('#box').attr('src','images/Box Game '+score+'-01.png');
                     }
                     if(score==5){
-                        $('#box').attr('src','images/Box Game box-01.png');
-                        $('#box').removeClass('locked-box');
-                        alert('menang');
+                        $('#display').empty();
+                        const win = `<div><img src="images/Box Game box-01.png" alt="box" style="width:600px;" class="drop"><h1 style="font-size: 36px; font-weight:bold;">CONGRATULATIONS!!!</h1></div>`;
+                        $('#display').append(win);
                         delete questions;
                     }
                     delete questions[inputValue];
@@ -148,22 +195,19 @@
             }
         });
     </script>
-    <div class="flex flex-row w-full" style="height: 80vh;">
-        <div class="basis-1/3">
-            <h1 class="text-center text-5xl font-bold my-8 mx-5">Crack the Code !</h1>
+    <div class="bg-red-500 center" style="height:100vh" id="display">
+        <div style="height: 80vh;">
+            <h1 class="text-center text-5xl font-bold m-5">Crack the Code !</h1>
             <div>
-                <div class="center"><img src="images/Box Game 0-01.png" alt="box" class="locked-box w-80" id="box"></div>
+                <div class="center"><img src="images/Box Game 0-01.png" alt="box" class="locked-box w-96" id="box"></div>
                 <input type="text" name="input" id="input" class="h-12 w-64 rounded m-3 p-3" style="font-weight: bold; font-size:32px; text-align:center" maxlength="4">
                 <br>
                 <button id='code' class="bg-yellow-300 h-12 w-64 m-3 rounded text-xl hover:bg-yellow-100">ENTER CODE</button>
             </div>
         </div>
-        <div class="basis-2/3">
-            <div class="question rounded m-5 py-5 px-12" style="height:80vh;" id="question">
-                {{-- container pertanyaan --}}
-            </div>
+        <div class="question rounded m-5 py-5 px-12" style="width:80%; height:80vh;" id="question">
         </div>
-    </div>
+    </div> 
 </body>
 
 </html>
