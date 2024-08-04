@@ -42,7 +42,7 @@ Route::get('/', [LoginController::class, 'index'])
     ->middleware('guest');
 
 Route::post('/login', [LoginController::class, 'login'])
-    ->name('login')
+    ->name('login-post')
     ->middleware('guest');
 
 Route::post('/logout', [LoginController::class, 'logout'])
