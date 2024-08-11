@@ -25,20 +25,22 @@ class UserSeeder extends Seeder
             'Rolling Ball' => 'TF 4.3',
             'Pingo' => 'TF 4.1B',
             'Pyramid Jengga' => 'TF 3.1 ',
-            'Crack The Code' => 'TF 2.5',
+            'Crack The Code' => 'Gaztek',
             'Magic Color' => 'TF 4.1A',
             'Match Me' => 'TF 2.1',
-            'Try Your Luck' => 'TF 4.1B',
+            'Try Your Luck' => 'TF 2.5',
             'Wandering Train' => 'Gaztek'
         ];
 
         $pos = 1;
         foreach ($posts as $post => $lokasi) {
+            // 14 Buat Battle, 8 Buat Single
+            $target = ($pos > 10) ? 14 : 8;
             User::query()->create([
                 'name' => $post,
                 'username' => "penpos$pos",
                 'password' => Hash::make('Penpos@MOBFT24'),
-                'target' => 15,
+                'target' => $target,
                 'lokasi' => $lokasi,
                 'role' => 'Penpos'
             ]);
