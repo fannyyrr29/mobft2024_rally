@@ -12,7 +12,7 @@
       <style>
         @import url('https://fonts.cdnfonts.com/css/sancreek');
         .card{
-            height:180px;
+            height:200px;
             width: 140px;
             position: relative;
             transform-style: preserve-3d;
@@ -27,11 +27,12 @@
         }
 
         .card-front img,.card-back img{
-            padding: 8px;   
+            height: 100%;
+            width: 100%;     
         }
             
         .card-back{
-            background-color: maroon;
+            background-color:#F6F7D7;
         }
 
         .card-front, .card-back{
@@ -83,26 +84,26 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     const cardlist = [
-        { value: '1', image: 'images/2.png' },
-        { value: '2', image: 'images/3.png' },
-        { value: '3', image: 'images/4.png' },
-        { value: '4', image: 'images/5.png' },
-        { value: '5', image: 'images/6.png' },
-        { value: '6', image: 'images/7.png' },
-        { value: '7', image: 'images/8.png' },
-        { value: '8', image: 'images/9.png' },
-        { value: '9', image: 'images/10.png' },
-        { value: '10', image: 'images/11.png' },
-        { value: '1', image: 'images/2.png' },
-        { value: '2', image: 'images/3.png' },
-        { value: '3', image: 'images/4.png' },
-        { value: '4', image: 'images/5.png' },
-        { value: '5', image: 'images/6.png' },
-        { value: '6', image: 'images/7.png' },
-        { value: '7', image: 'images/8.png' },
-        { value: '8', image: 'images/9.png' },
-        { value: '9', image: 'images/10.png' },
-        { value: '10', image: 'images/11.png' }
+        { value: '1', image: 'images/Front0.png' },
+        { value: '2', image: 'images/Front1.png' },
+        { value: '3', image: 'images/Front2.png' },
+        { value: '4', image: 'images/Front3.png' },
+        { value: '5', image: 'images/Front4.png' },
+        { value: '6', image: 'images/Front5.png' },
+        { value: '7', image: 'images/Front6.png' },
+        { value: '8', image: 'images/Front7.png' },
+        { value: '9', image: 'images/Front8.png' },
+        { value: '10', image: 'images/Front9.png' },
+        { value: '1', image: 'images/Front0.png' },
+        { value: '2', image: 'images/Front1.png' },
+        { value: '3', image: 'images/Front2.png' },
+        { value: '4', image: 'images/Front3.png' },
+        { value: '5', image: 'images/Front4.png' },
+        { value: '6', image: 'images/Front5.png' },
+        { value: '7', image: 'images/Front6.png' },
+        { value: '8', image: 'images/Front7.png' },
+        { value: '9', image: 'images/Front8.png' },
+        { value: '10', image: 'images/Front9.png' },
     ];
 
     let firstCard,secondCard;
@@ -129,7 +130,7 @@
                 <img src="${element.image}">   
                 </div>
                 <div class="card-back">
-                    <img src="images/MainLogo.png">   
+                    <img src="images/Back.png">   
                 </div>
             </div>
                 `;                   
