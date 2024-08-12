@@ -43,17 +43,18 @@
     </div>
 @endif
 <div>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-        @csrf
-    </form>
     <div class="d-flex flex-row justify-content-center align-items-center h-100">
         <div class="card w-100 mx-5">
             <div class="card-header text-center">
                 <div class="d-flex justify-content-end mb-2">
-                    <a class="btn btn-danger" href="{{ route('logout') }}"
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-danger">Log Out</button>
+                    </form>
+                    {{-- <a class="btn btn-danger" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                        <i class="fa fa-key"></i> Log Out</a>
+                        <i class="fa fa-key"></i> Log Out</a> --}}
                 </div>
                 <h1 class="text-mob" style="font-weight: bolder;">{{ auth()->user()->name }}</h1>
                 <h2 class="text-mob" style="color: #941B0C; font-weight: bolder;">{{ implode(", ", $maps) }}</h2>

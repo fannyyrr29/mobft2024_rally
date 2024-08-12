@@ -16,7 +16,7 @@ class TeamSeeder extends Seeder
         for ($i = 1; $i <= 20; $i++) {
             Team::query()
                 ->create([
-                    'nama' => "Tim $i"
+                    'nama' => "Euphoria $i"
                 ]);
         }
     }

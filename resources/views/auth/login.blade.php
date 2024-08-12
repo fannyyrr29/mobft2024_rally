@@ -30,7 +30,7 @@
                                 {{ session()->get('gagal') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('login') }}" class="form-floating">
+                        <form method="POST" action="{{ route('login-post') }}" class="form-floating">
                             @csrf
                             <h2 class="text-mob" style="color: #F6F7D7;">Masuk</h2>
                             <div class="form-floating mb-3">
