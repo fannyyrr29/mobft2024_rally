@@ -117,7 +117,7 @@
 
     $('#start').click(function () { 
         lookTime();
-        startTimer(180, document.querySelector('#timer'));
+        startTimer(300, document.querySelector('#timer'));
         $('#start').addClass('hidden');
     }); 
 
