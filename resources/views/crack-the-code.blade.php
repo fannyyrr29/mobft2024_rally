@@ -130,20 +130,41 @@
 
             function Quest(){
                 if (questions[inputValue] && inputValue!=lockedCode) {
-                    const q = `
-                    <div class="mx-auto text-center">
-                    <p class="text-left bg-red-300 p-3 rounded my-5" style="font-size:20px">
-                        ${questions[inputValue].question}
-                    </p>
-                    <div>
-                        <button id='a' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">A. ${questions[inputValue].a}</button>
-                        <button id='b' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">B. ${questions[inputValue].b}</button>
-                    </div>
-                    <div>
-                        <button id='c' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">C. ${questions[inputValue].c}</button>
-                        <button id='d' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">D. ${questions[inputValue].d}</button>
-                    </div>
-                    </div>`;
+                    let q = ``;
+                    if(inputValue=="TEKN"){
+                        q = `
+                            <div  class="mx-auto text-center">
+                                <div style="display:flex; width:100%;margin:50px 0;">
+                                    <img src="images/TEKN.jpg" alt="box" style="width:600px;margin:auto;">
+                                </div>
+                                
+                                <div>
+                                    <button id='a' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">A. ${questions[inputValue].a}</button>
+                                    <button id='b' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">B. ${questions[inputValue].b}</button>
+                                </div>
+                                <div>
+                                    <button id='c' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">C. ${questions[inputValue].c}</button>
+                                    <button id='d' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">D. ${questions[inputValue].d}</button>
+                                </div>
+                            </div>`;
+                    }
+                    else{
+                        q = `
+                            <div class="mx-auto text-center">
+                                <p class="text-left bg-red-300 p-3 rounded my-5" style="font-size:20px">
+                                    ${questions[inputValue].question}
+                                </p>
+                                <div>
+                                    <button id='a' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">A. ${questions[inputValue].a}</button>
+                                    <button id='b' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">B. ${questions[inputValue].b}</button>
+                                </div>
+                                <div>
+                                    <button id='c' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">C. ${questions[inputValue].c}</button>
+                                    <button id='d' class="bg-yellow-300 h-12 w-48 m-3 rounded text-xl hover:bg-yellow-100" style="width:45%">D. ${questions[inputValue].d}</button>
+                                </div>
+                            </div>`;
+                    }
+                    
                     $("#question").append(q);
 
                     $('#a').click(function () { checkAnswer('a'); });
