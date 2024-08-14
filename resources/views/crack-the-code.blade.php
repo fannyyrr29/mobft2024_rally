@@ -112,7 +112,7 @@
                 'MABA':{question:'They ___ to the carnival every year', a:'go', b:'goes', c:'going', d:'gone', ans:'go'},
                 'MAHS':{question:'Februari 2024 memiliki berapa hari', a:'27', b:'28', c:'29', d:'30', ans:'29'},
                 'KAMP':{question:'5, 10, 8, 13, 11, 16, …, …, …, …<br>Angka setelah angka 16 adalah…', a:'14', b:'19', c:'17', d:'20', ans:'14'},
-                'ORTN':{question:'Nama Dosen Koordinator Kemahasiswaan adalah…', a:'Bu Maya', b:'Pak Susila', c:'Pak Eric', d:'Pak Argo', ans:'Pak Argo'},
+                'ORTN':{question:'Nama Dosen Koordinator Kemahasiswaan adalah…', a:'Herman SusHerman Susanto, S.T., M.Sc', b:'Dr. Ir. Susila Candra, M.T., IPM.', c:'Ir. Eric Wibisono, Ph.D., IPU', d:'Argo Hadi Kusumo, M.B.A', ans:'Argo Hadi Kusumo, M.B.A'},
                 'PADA':{question:'Lapangan kecil yang menjadi Icon dari Fakultas Teknik adalah..', a:'Boulebard', b:'Lapangan USC', c:'Boulevard', d:'Gazebo Teknik', ans:'Boulevard'},
                 'TEKN':{question:'(1/2)+(1/3):(4/5)', a:'26/24', b:'22/24', c:'28/24', d:'20/24', ans:'22/24'},
                 'FTTK':{question:'Ruang Dekan dan Wakil Dekan Fakultas Teknik ada di..', a:'TC 2.1', b:'TF lantai 1', c:'TB lantai 2', d:'TA 200', ans:'TA 200'},
