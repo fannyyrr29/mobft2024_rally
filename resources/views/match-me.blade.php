@@ -68,7 +68,7 @@
       </style>
 </head>
 <body style="background-color: #EAE2B7">
-    <div id="timer" >03:00</div>
+    <div id="timer" >05:00</div>
     <div class="mx-auto h-500px">
         <p class="text-5xl font-bold left-2"></p>
         <h1 class="text-center text-5xl font-bold my-8" style="font-family: 'Sancreek', sans-serif; color:#390203; ">MATCH ME!</h1>
