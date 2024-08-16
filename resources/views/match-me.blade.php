@@ -246,6 +246,13 @@
                 timerIsOn = false;
                 $('#start').removeClass('hidden');
             }
+
+            if (match == 10){
+                clearInterval(interval);
+                lockBoard = true;
+                timerIsOn = false;
+                $('#start').removeClass('hidden');
+            }
         }, 1000);
     }
     
